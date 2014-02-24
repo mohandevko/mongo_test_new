@@ -1,0 +1,17 @@
+<h2>Upload Venue</h2>
+
+<%= form_for @venue do |f| %>
+  <%= f.error_messages %>
+
+  <div><%= f.label :name %><br />
+    <%= f.text_field :name, :autofocus => true %></div>
+
+  <div><%= f.label :description %><br />
+    <%= f.text_field :description %></div>
+
+  <div><%= f.label :location %><br />
+    <%= f.text_field :location %>&nbsp;Tag: &nbsp;<%= f.select :location_type,%w(city state country) %></div>
+
+  <div><%= f.submit "Create" %></div>
+<% end %>
+
