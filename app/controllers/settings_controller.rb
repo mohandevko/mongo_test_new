@@ -1,4 +1,8 @@
 class SettingsController < ApplicationController
+  
+  def index
+    @users = User.all
+  end
   def edit
     @user = User.find(params[:id])
   end
@@ -12,6 +16,14 @@ class SettingsController < ApplicationController
       flash[:error] = "Updation failed!"
       render :action => :edit
     end
+  end
+  
+  def approve
+    @user = User.find(params[:id])
+    @user.status = params[:status]
+    @user.save(:validate => false)
+    @status = @user.status == true ? "Approved" : "Not Approved"
+    render
   end
   
   private

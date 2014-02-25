@@ -36,6 +36,7 @@ class User
   field :uid, :type => String
   field :provider, :type => String
   field :status,:type => Boolean,:default => false
+  field :role,:type => String,:default => "user"
   
   validates :first_name,:last_name,:username,:presence => true
 

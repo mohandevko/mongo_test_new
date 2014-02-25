@@ -8,6 +8,20 @@ class ApplicationController < ActionController::Base
     root_path
   end
   
+  def is_login
+    unless current_user
+      flash[:error] = "Please login!"
+      redirect_to root_path
+    end
+  end
+  
+  def is_admin
+    unless current_user and current_user.role == "admin"
+      flash[:error] = "Access denied!"
+      redirect_to root_path
+    end
+  end
+  
   protected
 
   def configure_permitted_parameters

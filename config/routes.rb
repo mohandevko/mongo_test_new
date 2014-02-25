@@ -6,7 +6,11 @@ Backbone::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
   get "auth/:provider/callback" => "omniauths#create"
-  resources :settings
+  resources :settings do
+    member do
+      put :approve
+    end
+  end
   resources :venues
 
   # Example of regular route:

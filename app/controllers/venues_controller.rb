@@ -1,7 +1,7 @@
 class VenuesController < ApplicationController
-  
+  before_filter :is_login
   def index
-    @venues = current_user.venues
+    @venues = current_user.venues.where(:role => "user")
   end
   
   def new

@@ -1,0 +1,3 @@
+$("#approve").html('<%= @status %>');
+$("#approve_link").html('<a rel="nofollow" href="/settings/2/approve?status=<%= @status == "Approved" ? false : true %>" data-remote="true" data-method="put"><%= @status == "Approved" ? "Not Approve" : "Approve" %></a>')
+
